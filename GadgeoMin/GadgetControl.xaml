@@ -7,9 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Background="#FFE5E5E5">
-        <DataGrid ItemsSource="{Binding GadgetList}">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox Text="Suchen" />
+                <Button Name="add">
+                    <TextBlock Text="Gadget hinzufügen" />
+                </Button>
+                <Button Name="edit">
+                    <TextBlock Text="Gadget bearbeiten" />
+                </Button>
+            </StackPanel>
             
-        </DataGrid>
+            <DataGrid ItemsSource="{Binding GadgetList}" />
+
+        </StackPanel>      
     </Grid>
 
 </UserControl>
