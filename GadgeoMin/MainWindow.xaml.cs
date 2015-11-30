@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,16 @@ namespace GadgeoMin
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<ch.hsr.wpf.gadgeothek.domain.Gadget> gadgetList = new ObservableCollection<ch.hsr.wpf.gadgeothek.domain.Gadget>();
+        public ObservableCollection<ch.hsr.wpf.gadgeothek.domain.Gadget> GadgetList { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            
+            
+
+            DataContext = this;
+
         }
     }
 }
