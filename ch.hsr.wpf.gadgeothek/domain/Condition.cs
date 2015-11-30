@@ -1,7 +1,7 @@
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-
+// my ass Comment
 namespace ch.hsr.wpf.gadgeothek.domain
 {
     [JsonConverter(typeof(StringEnumConverter))]
