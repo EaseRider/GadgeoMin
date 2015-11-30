@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace GadgeoMin
 {
     /// <summary>
-    /// Interaction logic for AusleiheControl.xaml
+    /// Interaction logic for GadgetControl.xaml
     /// </summary>
-    public partial class AusleiheControl : UserControl
+    public partial class GadgetControl : UserControl
     {
-
-        public AusleiheControl()
+        public GadgetControl()
         {
             InitializeComponent();
-        }
-
-        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

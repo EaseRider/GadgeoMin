@@ -6,17 +6,11 @@
              xmlns:local="clr-namespace:GadgeoMin"
              mc:Ignorable="d" 
              d:DesignHeight="312.712" d:DesignWidth="415.678">
-    <Grid>
+    <Grid HorizontalAlignment="Left" Margin="0,0,0,-0.333" Width="416">
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hallo Ausleihe!" VerticalAlignment="Top" Height="16" Width="79" Grid.RowSpan="2"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="20" Margin="0,15,0,0" TextWrapping="Wrap" Text="Suchen" VerticalAlignment="Top" Width="87" Grid.Row="1"/>
         <Grid HorizontalAlignment="Left" Height="277" Margin="0,35,0,0" VerticalAlignment="Top" Width="416" Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="143*"/>
-                <ColumnDefinition Width="157*"/>
-            </Grid.ColumnDefinitions>
-            <DataGrid DataContext="ch.hsr.wpf.gadgeothek.Customer" x:Name="dataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="228" Width="184"
-                      ItemsSource="{Binding Source=}"
-                      />
+            <DataGrid ItemsSource="{Binding LoanList}"/>
         </Grid>
     </Grid>
 </UserControl>

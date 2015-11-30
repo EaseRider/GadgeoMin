@@ -9,24 +9,11 @@
     <Grid>
         <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="301" Margin="10,10,0,0" VerticalAlignment="Top" Width="499">
             <TabItem Header="Ausleihe">
-                <local:AusleiheControl />
+                <local:AusleiheControl x:Name="Ausleihe"/>
             </TabItem>
             
             <TabItem Header="Gadgets">
-                <Grid Background="#FFE5E5E5">
-                    <TextBox x:Name="Suchen" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="Suchen" VerticalAlignment="Top" Width="120"/>
-                    <DataGrid ItemsSource="{Binding Customers}" AutoGenerateColumns="False" >
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="Image" Width="SizeToCells" IsReadOnly="True">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Image Source="{Binding Image}" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
+                <local:GadgetControl x:Name="Gadget"/>
             </TabItem>
         </TabControl>
     </Grid>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ch.hsr.wpf.gadgeothek.domain;
+using ch.hsr.wpf.gadgeothek.service;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -21,15 +23,26 @@ namespace GadgeoMin
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<ch.hsr.wpf.gadgeothek.domain.Gadget> gadgetList = new ObservableCollection<ch.hsr.wpf.gadgeothek.domain.Gadget>();
-        public ObservableCollection<ch.hsr.wpf.gadgeothek.domain.Gadget> GadgetList { get; set; }
+        public ObservableCollection<Gadget> GadgetList { get; set; }
+        public ObservableCollection<Loan> LoanList { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            
+                
+            DataContext = this;
+            Ausleihe.DataContext = this;
+            Gadget.DataContext = this;
+
+            String ServerUrl = "http://localhost:8080";
+            var service = new LibraryAdminService(ServerUrl);
+            List<Gadget> gadget = service.GetAllGadgets();
+            List<Loan> loans = service.GetAllLoans();
+
+            GadgetList = new ObservableCollection<Gadget>(gadget);
+            LoanList = new ObservableCollection<Loan>(loans);
             
 
-            DataContext = this;
+        
 
         }
     }
