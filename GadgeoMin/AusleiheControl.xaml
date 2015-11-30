@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="GadgeoMin.AusleiheControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GadgeoMin"
+             mc:Ignorable="d" 
+             d:DesignHeight="312.712" d:DesignWidth="415.678">
+    <Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hallo Ausleihe!" VerticalAlignment="Top" Height="16" Width="79" Grid.RowSpan="2"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="20" Margin="0,15,0,0" TextWrapping="Wrap" Text="Suchen" VerticalAlignment="Top" Width="87" Grid.Row="1"/>
+        <Grid HorizontalAlignment="Left" Height="277" Margin="0,35,0,0" VerticalAlignment="Top" Width="416" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="143*"/>
+                <ColumnDefinition Width="157*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid DataContext="ch.hsr.wpf.gadgeothek.Customer" x:Name="dataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="228" Width="184"
+                      ItemsSource="{Binding Source=}"
+                      />
+        </Grid>
+    </Grid>
+</UserControl>
