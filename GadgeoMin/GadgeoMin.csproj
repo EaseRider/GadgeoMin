@@ -63,6 +63,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Gadget_bearbeiten.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Gadget_hinzufügen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,6 +84,9 @@
     </Compile>
     <Compile Include="GadgetControl.xaml.cs">
       <DependentUpon>GadgetControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gadget_bearbeiten.xaml.cs">
+      <DependentUpon>Gadget_bearbeiten.xaml</DependentUpon>
     </Compile>
     <Compile Include="Gadget_hinzufügen.xaml.cs">
       <DependentUpon>Gadget_hinzufügen.xaml</DependentUpon>

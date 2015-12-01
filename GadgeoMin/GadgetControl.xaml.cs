@@ -23,6 +23,21 @@ namespace GadgeoMin
         public GadgetControl()
         {
             InitializeComponent();
+
+           
+        }
+
+
+    private void btnAddGadget_Click(object sender, RoutedEventArgs e)
+    {
+        Gadget_hinzufügen gadgetHinzufügen = new Gadget_hinzufügen();
+        gadgetHinzufügen.Show();
+    }
+
+    private void btnEditGadget_Click(object sender, RoutedEventArgs e)
+        {
+            Gadget_bearbeiten gadgetBearbeiten = new Gadget_bearbeiten();
+            gadgetBearbeiten.Show();
         }
     }
 }

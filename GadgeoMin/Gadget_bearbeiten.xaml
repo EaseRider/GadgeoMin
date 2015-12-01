@@ -1,11 +1,11 @@
-﻿<Window x:Class="GadgeoMin.Gadget_hinzufügen"
+﻿<Window x:Class="GadgeoMin.Gadget_bearbeiten"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GadgeoMin"
         mc:Ignorable="d"
-        Title="Gadget hinzufügen" Height="251.855" Width="300">
+        Title="Gadget bearbeiten" Height="300" Width="300">
     <Grid Background="#FFE5E5E5">
         <StackPanel HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="Auto" Margin="0,0,0,-0.333">
             <TextBlock Height="22" Margin="5,10,0,0" Text="ID"/>

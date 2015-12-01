@@ -15,14 +15,13 @@ using System.Windows.Shapes;
 namespace GadgeoMin
 {
     /// <summary>
-    /// Interaction logic for Gadget_hinzufügen.xaml
+    /// Interaction logic for Gadget_bearbeiten.xaml
     /// </summary>
-    public partial class Gadget_hinzufügen : Window
+    public partial class Gadget_bearbeiten : Window
     {
-        public Gadget_hinzufügen()
+        public Gadget_bearbeiten()
         {
             InitializeComponent();
-
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)

@@ -10,10 +10,10 @@
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBox Text="Suchen" />
-                <Button Name="add">
+                <Button x:Name="btnAddGadget" Click="btnAddGadget_Click">
                     <TextBlock Text="Gadget hinzufügen" />
                 </Button>
-                <Button Name="edit">
+                <Button x:Name="btnEditGadget" Click="btnEditGadget_Click">
                     <TextBlock Text="Gadget bearbeiten" />
                 </Button>
             </StackPanel>
