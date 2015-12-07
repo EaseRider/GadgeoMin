@@ -33,6 +33,8 @@ namespace GadgeoMin
             DataContext = this;
             Ausleihe.DataContext = this;
             Gadget.DataContext = this;
+            GadgetList = new ObservableCollection<Gadget>();
+            LoanList = new ObservableCollection<Loan>();
 
             RefreshDataGrid();
         }
@@ -42,9 +44,14 @@ namespace GadgeoMin
             String ServerUrl = "http://localhost:8080";
             var service = new LibraryAdminService(ServerUrl);
             List<Gadget> gadgets = service.GetAllGadgets();
+            GadgetList.Clear();
+            gadgets.ForEach(GadgetList.Add);
+
             List<Loan> loans = service.GetAllLoans();
-            GadgetList = new ObservableCollection<Gadget>(gadgets);
-            LoanList = new ObservableCollection<Loan>(loans);
+            LoanList.Clear();
+            loans.ForEach(LoanList.Add);
+           //GadgetList = new ObservableCollection<Gadget>(gadgets); 
+            // LoanList = new ObservableCollection<Loan>(loans);
         }
 
     }
