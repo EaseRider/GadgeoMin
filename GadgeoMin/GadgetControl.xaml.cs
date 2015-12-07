@@ -23,8 +23,6 @@ namespace GadgeoMin
         public GadgetControl()
         {
             InitializeComponent();
-
-           
         }
 
 

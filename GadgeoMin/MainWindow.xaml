@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GadgeoMin"
         mc:Ignorable="d"
-        Title="Gadgeothek Admin App" Height="350" Width="525">
+        Title="Gadgeothek Admin App" Height="501.294" Width="511.713">
     <Grid>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="301" Margin="10,10,0,0" VerticalAlignment="Top" Width="499">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="462" Margin="10,10,-3.667,0" VerticalAlignment="Top" Width="499">
             <TabItem Header="Ausleihe">
-                <local:AusleiheControl x:Name="Ausleihe"/>
+                <local:AusleiheControl x:Name="Ausleihe" Margin="0,0,-0.333,6.333" Loaded="Ausleihe_Loaded"/>
             </TabItem>
-            
+
             <TabItem Header="Gadgets">
                 <local:GadgetControl x:Name="Gadget"/>
             </TabItem>

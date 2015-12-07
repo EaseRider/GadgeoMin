@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ch.hsr.wpf.gadgeothek.domain;
+using ch.hsr.wpf.gadgeothek.service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +29,38 @@ namespace GadgeoMin
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            String ServerUrl = "http://localhost:8080";
+            var service = new LibraryAdminService(ServerUrl);
+
+            String value = this.tbPrice.Text;
+            Double result = 0.0;
+            try
+            {
+                result = Convert.ToDouble(value);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Unable to convert '{0}' to a Double.", value);
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("'{0}' is outside the range of a Double.", value);
+            }
+
+            Gadget newGadget = new Gadget();
+            newGadget.InventoryNumber = this.tbID.Text;
+            newGadget.Name = this.tbName.Text;
+            newGadget.Manufacturer = this.tbManufacturer.Text;            
+            newGadget.Price = result;
+            newGadget.Condition = new ch.hsr.wpf.gadgeothek.domain.Condition();
+
+            service.AddGadget(newGadget);
+            
             this.Close();
         }
     }

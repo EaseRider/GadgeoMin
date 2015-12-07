@@ -33,17 +33,20 @@ namespace GadgeoMin
             Ausleihe.DataContext = this;
             Gadget.DataContext = this;
 
+            reloadLists();
+        }
+
+        public void reloadLists()
+        {
             String ServerUrl = "http://localhost:8080";
             var service = new LibraryAdminService(ServerUrl);
-            List<Gadget> gadget = service.GetAllGadgets();
+            List<Gadget> gadgets = service.GetAllGadgets();
             List<Loan> loans = service.GetAllLoans();
-
-            GadgetList = new ObservableCollection<Gadget>(gadget);
+            GadgetList = new ObservableCollection<Gadget>(gadgets);
             LoanList = new ObservableCollection<Loan>(loans);
-            
-
-        
-
         }
+
     }
+
+
 }
