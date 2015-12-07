@@ -7,20 +7,26 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Background="#FFE5E5E5">
-        <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox Text="Suchen" />
-                <Button x:Name="btnAddGadget" Click="btnAddGadget_Click">
-                    <TextBlock Text="Gadget hinzufügen" />
-                </Button>
-                <Button x:Name="btnEditGadget" Click="btnEditGadget_Click">
-                    <TextBlock Text="Gadget bearbeiten" />
-                </Button>
-            </StackPanel>
-            
-            <DataGrid ItemsSource="{Binding GadgetList}" />
-
-        </StackPanel>      
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
+            <TextBox Text="Suchen" />
+            <Button x:Name="btnAddGadget" Click="btnAddGadget_Click">
+                <TextBlock Text="Gadget hinzufügen" />
+            </Button>
+            <Button x:Name="btnEditGadget" Click="btnEditGadget_Click">
+                <TextBlock Text="Gadget bearbeiten" />
+            </Button>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <DataGrid ItemsSource="{Binding GadgetList}" 
+                    ScrollViewer.CanContentScroll="True" 
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    ScrollViewer.HorizontalScrollBarVisibility="Auto" />
+        </Grid>
+              
     </Grid>
 
 </UserControl>
