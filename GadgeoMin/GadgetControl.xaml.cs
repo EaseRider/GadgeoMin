@@ -46,6 +46,7 @@ namespace GadgeoMin
             
             if (window.ShowDialog() == true)
             {
+                Console.WriteLine(dataGridView.CurrentCell.Item.ToString());
                 MainWindow main = (MainWindow)Window.GetWindow(this);
                 // Update DataGrid
                 main.RefreshDataGrid();

@@ -60,6 +60,7 @@ namespace GadgeoMin
             newGadget.Condition = new ch.hsr.wpf.gadgeothek.domain.Condition();
 
             service.UpdateGadget(newGadget);
+
         }
 
     }

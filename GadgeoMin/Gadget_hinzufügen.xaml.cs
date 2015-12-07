@@ -21,9 +21,14 @@ namespace GadgeoMin
     /// </summary>
     public partial class Gadget_hinzufügen : Window
     {
+        LibraryAdminService service;
         public Gadget_hinzufügen()
         {
             InitializeComponent();
+            String ServerUrl = "http://localhost:8080";
+            service = new LibraryAdminService(ServerUrl);
+
+            tbID.Text = findInventoryNumber();
 
         }
 
@@ -34,8 +39,7 @@ namespace GadgeoMin
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            String ServerUrl = "http://localhost:8080";
-            var service = new LibraryAdminService(ServerUrl);
+            
 
             String value = this.tbPrice.Text;
             Double result = 0.0;
@@ -53,15 +57,37 @@ namespace GadgeoMin
             }
             this.DialogResult = true;
             Gadget newGadget = new Gadget();
-            newGadget.InventoryNumber = this.tbID.Text;
+            newGadget.InventoryNumber = findInventoryNumber();
             newGadget.Name = this.tbName.Text;
             newGadget.Manufacturer = this.tbManufacturer.Text;            
             newGadget.Price = result;
             newGadget.Condition = new ch.hsr.wpf.gadgeothek.domain.Condition();
-
+            
             service.AddGadget(newGadget);
             
             this.Close();
+        }
+
+        public string findInventoryNumber()
+        {
+            List<Gadget> gadgets = service.GetAllGadgets();
+            for(int i = 0; i < gadgets.Count; i++)
+            {
+                bool unused = true;
+                foreach(Gadget gadget in gadgets)
+                {
+                    if (gadget.InventoryNumber.Equals(i.ToString()))
+                    {
+                        unused = false;
+                        break;
+                    }
+                }
+                if (unused)
+                {
+                    return i.ToString();
+                }
+            }
+            return "no inventory number found";
         }
     }
 }

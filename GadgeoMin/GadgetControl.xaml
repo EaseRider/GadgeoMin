@@ -21,7 +21,7 @@
             </Button>
         </StackPanel>
         <Grid Grid.Row="1">
-            <DataGrid ItemsSource="{Binding GadgetList}" 
+            <DataGrid x:Name="dataGridView" ItemsSource="{Binding GadgetList}" 
                     ScrollViewer.CanContentScroll="True" 
                     ScrollViewer.VerticalScrollBarVisibility="Auto"
                     ScrollViewer.HorizontalScrollBarVisibility="Auto" />
