@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:GadgeoMin"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Background="#FFE5E5E5">
+    <Grid Background="#FFE5E5E5" Margin="0,0,-81,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -19,6 +19,9 @@
             <Button x:Name="btnEditGadget" Click="btnEditGadget_Click">
                 <TextBlock Text="Gadget bearbeiten" />
             </Button>
+            <Button x:Name="btnDeleteGadget" Click="btnDeleteGadget_Click">
+                <TextBlock Text="Gadget entfernen" />
+            </Button>
         </StackPanel>
         <Grid Grid.Row="1">
             <DataGrid x:Name="dataGridView" ItemsSource="{Binding GadgetList}" 
@@ -26,7 +29,7 @@
                     ScrollViewer.VerticalScrollBarVisibility="Auto"
                     ScrollViewer.HorizontalScrollBarVisibility="Auto" />
         </Grid>
-              
+
     </Grid>
 
 </UserControl>

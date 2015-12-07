@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ch.hsr.wpf.gadgeothek.domain;
+using ch.hsr.wpf.gadgeothek.service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,13 @@ namespace GadgeoMin
     /// </summary>
     public partial class GadgetControl : UserControl
     {
+        LibraryAdminService service;
         public GadgetControl()
         {
             InitializeComponent();
+
+            String ServerUrl = "http://localhost:8080";
+            service = new LibraryAdminService(ServerUrl);
         }
 
 
@@ -53,6 +59,13 @@ namespace GadgeoMin
             }
         }
 
-        
+        private void btnDeleteGadget_Click(object sender, RoutedEventArgs e)
+        {
+            Gadget gadget = (Gadget)dataGridView.SelectedItem;
+            service.DeleteGadget(gadget);
+            MainWindow main = (MainWindow)Window.GetWindow(this);
+            // Update DataGrid
+            main.RefreshDataGrid();
+        }
     }
 }
