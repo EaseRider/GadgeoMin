@@ -33,23 +33,25 @@ namespace GadgeoMin
             {
                 MainWindow main = (MainWindow)Window.GetWindow(this.Parent);
                 // Update DataGrid
-                Console.WriteLine(this.Parent.ToString());
-                main.RefreshDataGrid();
-                Console.WriteLine("DataGrid refreshed");
+                main.RefreshDataGrid(); 
                 
+                              
             }
         }
 
         private void btnEditGadget_Click(object sender, RoutedEventArgs e)
         {
             Gadget_bearbeiten window = new Gadget_bearbeiten();
+            window.Owner = (MainWindow)Window.GetWindow(this);
+            
             if (window.ShowDialog() == true)
             {
                 MainWindow main = (MainWindow)Window.GetWindow(this);
                 // Update DataGrid
                 main.RefreshDataGrid();
-                Console.WriteLine("DataGrid refreshed");
             }
         }
+
+        
     }
 }
