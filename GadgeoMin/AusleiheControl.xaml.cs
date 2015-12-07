@@ -20,7 +20,8 @@ namespace GadgeoMin
     /// </summary>
     public partial class AusleiheControl : UserControl
     {
-
+        private MainWindow mainWindow;
+        
         public AusleiheControl()
         {
             InitializeComponent();
@@ -29,6 +30,12 @@ namespace GadgeoMin
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void filterInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            mainWindow = (MainWindow)Window.GetWindow(this);
+            mainWindow.filterLoans(filterInput.Text);
         }
     }
 }

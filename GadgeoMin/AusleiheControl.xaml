@@ -13,7 +13,33 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hallo Ausleihe!" VerticalAlignment="Top" Height="16" Width="79" Grid.Row="0" />
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="Suchen" VerticalAlignment="Top" Width="87" Grid.Row="1"/>
+        <TextBox x:Name="filterInput" HorizontalAlignment="Left" Height="20" 
+                 TextWrapping="Wrap" Text=""  VerticalAlignment="Top" 
+                 Width="87" Grid.Row="1" TextChanged="filterInput_TextChanged">
+
+            <TextBox.Style>
+                <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                    <Style.Resources>
+                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                            <VisualBrush.Visual>
+                                <Label Content="Suche" Foreground="LightGray" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Style.Resources>
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="Background" Value="White" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
         <Grid Grid.Row="2"
               ScrollViewer.CanContentScroll="True" 
               ScrollViewer.VerticalScrollBarVisibility="Auto"
