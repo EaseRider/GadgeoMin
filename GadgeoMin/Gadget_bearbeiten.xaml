@@ -18,7 +18,7 @@
             <TextBlock Height="22" Margin="0,10,5,0" Text="12345"/>
             <TextBox Height="22" Margin="0,10,5,0" />
             <TextBox Height="22" Margin="0,10,5,0" />
-            <TextBox Height="22" Margin="0,10,5,0" Text=" 0.0"/>
+            <TextBox Height="22" Margin="0,10,5,0" Text="1000,0"/>
             <ComboBox Height="22" Margin="0,10,5,10">
                 <ComboBoxItem Content="NEW"/>
                 <ComboBoxItem Content="GOOD"/>

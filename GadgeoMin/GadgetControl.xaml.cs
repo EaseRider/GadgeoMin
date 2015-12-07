@@ -26,16 +26,30 @@ namespace GadgeoMin
         }
 
 
-    private void btnAddGadget_Click(object sender, RoutedEventArgs e)
-    {
-        Gadget_hinzufügen gadgetHinzufügen = new Gadget_hinzufügen();
-        gadgetHinzufügen.Show();
-    }
-
-    private void btnEditGadget_Click(object sender, RoutedEventArgs e)
+        public void btnAddGadget_Click(object sender, RoutedEventArgs e)
         {
-            Gadget_bearbeiten gadgetBearbeiten = new Gadget_bearbeiten();
-            gadgetBearbeiten.Show();
+            Gadget_hinzufügen window = new Gadget_hinzufügen();
+            if (window.ShowDialog() == true)
+            {
+                MainWindow main = (MainWindow)Window.GetWindow(this.Parent);
+                // Update DataGrid
+                Console.WriteLine(this.Parent.ToString());
+                main.RefreshDataGrid();
+                Console.WriteLine("DataGrid refreshed");
+                
+            }
+        }
+
+        private void btnEditGadget_Click(object sender, RoutedEventArgs e)
+        {
+            Gadget_bearbeiten window = new Gadget_bearbeiten();
+            if (window.ShowDialog() == true)
+            {
+                MainWindow main = (MainWindow)Window.GetWindow(this);
+                // Update DataGrid
+                main.RefreshDataGrid();
+                Console.WriteLine("DataGrid refreshed");
+            }
         }
     }
 }

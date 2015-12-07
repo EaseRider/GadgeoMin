@@ -28,15 +28,16 @@ namespace GadgeoMin
         public MainWindow()
         {
             InitializeComponent();
-                
+
+            Console.WriteLine(this.ToString());
             DataContext = this;
             Ausleihe.DataContext = this;
             Gadget.DataContext = this;
 
-            reloadLists();
+            RefreshDataGrid();
         }
 
-        public void reloadLists()
+        public void RefreshDataGrid()
         {
             String ServerUrl = "http://localhost:8080";
             var service = new LibraryAdminService(ServerUrl);
