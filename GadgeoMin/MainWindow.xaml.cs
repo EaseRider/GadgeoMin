@@ -3,18 +3,8 @@ using ch.hsr.wpf.gadgeothek.service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Linq;
 
 namespace GadgeoMin
 {
@@ -26,6 +16,10 @@ namespace GadgeoMin
         public ObservableCollection<Gadget> GadgetList { get; set; }
         public ObservableCollection<Loan> LoanList { get; set; }
         public LibraryAdminService service;
+        //
+        private List<Gadget> AllGadgets = new List<Gadget>();
+        private List<Loan> AllLoans = new List<Loan>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -45,13 +39,31 @@ namespace GadgeoMin
 
         public void RefreshDataGrid()
         {
-            List<Gadget> gadgets = service.GetAllGadgets();
+            AllGadgets = service.GetAllGadgets();
             GadgetList.Clear();
-            gadgets.ForEach(GadgetList.Add);
+            AllGadgets.ForEach(GadgetList.Add);
 
-            List<Loan> loans = service.GetAllLoans();
+            AllLoans = service.GetAllLoans();
             LoanList.Clear();
-            loans.ForEach(LoanList.Add);
+            AllLoans.ForEach(LoanList.Add);
         }
+
+        public void filterLoans(String filter)
+        {
+            LoanList.Clear();
+            if (filter.Length > 0)
+            {
+                filter = filter.ToUpper();
+               AllLoans.Where(loan => {
+                   return loan.Gadget.Name.ToUpper().Contains(filter)
+                        || loan.Gadget.Manufacturer.ToUpper().Contains(filter)
+                        || loan.Customer.Name.ToUpper().Contains(filter);
+               }).ToList().ForEach(LoanList.Add);
+            } else
+            {
+                AllLoans.ForEach(LoanList.Add);
+            }   
+}
+        
     }
 }
