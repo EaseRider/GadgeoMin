@@ -5,13 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GadgeoMin"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Margin="0,0,-81,0">
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
+        <StackPanel Margin="0,5,0,5" Orientation="Horizontal" HorizontalAlignment="Center" 
+                    Grid.Row="0">
             <TextBox x:Name="filterInput" Text="" TextChanged="filterInput_TextChanged" Width="71">
                 <TextBox.Style>
                     <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
@@ -36,13 +37,13 @@
                     </Style>
                 </TextBox.Style>
             </TextBox>
-            <Button x:Name="btnAddGadget" Click="btnAddGadget_Click">
+            <Button x:Name="btnAddGadget" Style="{StaticResource GelButton}" Click="btnAddGadget_Click">
                 <TextBlock Text="Gadget hinzufügen" />
             </Button>
-            <Button x:Name="btnEditGadget" Click="btnEditGadget_Click">
+            <Button x:Name="btnEditGadget" Style="{StaticResource GelButton}" Click="btnEditGadget_Click">
                 <TextBlock Text="Gadget bearbeiten" />
             </Button>
-            <Button x:Name="btnDeleteGadget" Click="btnDeleteGadget_Click">
+            <Button x:Name="btnDeleteGadget" Style="{StaticResource GelButton}" Click="btnDeleteGadget_Click">
                 <TextBlock Text="Gadget entfernen" />
             </Button>
         </StackPanel>
