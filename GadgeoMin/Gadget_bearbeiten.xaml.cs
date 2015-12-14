@@ -51,7 +51,7 @@ namespace GadgeoMin
             {
                 Console.WriteLine("'{0}' is outside the range of a Double.", value);
             }
-            this.DialogResult = true;
+            
             Gadget newGadget = new Gadget();
             newGadget.InventoryNumber = this.tbID.Text;
             newGadget.Name = this.tbName.Text;
@@ -60,7 +60,7 @@ namespace GadgeoMin
             newGadget.Condition = new ch.hsr.wpf.gadgeothek.domain.Condition();
 
             service.UpdateGadget(newGadget);
-
+            this.DialogResult = true;
         }
 
     }

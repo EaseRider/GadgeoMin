@@ -25,5 +25,18 @@ namespace GadgeoMin
             mainWindow = (MainWindow)Window.GetWindow(this);
             mainWindow.filterLoans(filterInput.Text);
         }
+
+        private void btnEditLoan_Click(object sender, RoutedEventArgs e)
+        {
+            editLoanWindow window = new editLoanWindow();
+            if (window.ShowDialog() == true)
+            {
+                mainWindow = (MainWindow)Window.GetWindow(this.Parent);
+                // Update DataGrid
+                mainWindow.RefreshDataGrid();
+
+
+            }
+        }
     }
 }
