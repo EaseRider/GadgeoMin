@@ -5,13 +5,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Linq;
+using ch.hsr.wpf.gadgeothek.windowControl;
 
 namespace GadgeoMin
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : CustomWindow
     {
         public ObservableCollection<Gadget> GadgetList { get; set; }
         public ObservableCollection<Loan> LoanList { get; set; }
@@ -24,7 +25,7 @@ namespace GadgeoMin
         {
             InitializeComponent();
 
-            DataContext = this;
+            //DataContext = this;
             Ausleihe.DataContext = this;
             Gadget.DataContext = this;
 

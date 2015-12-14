@@ -1,11 +1,12 @@
-﻿<Window x:Class="GadgeoMin.MainWindow"
+﻿<control:CustomWindow x:Class="GadgeoMin.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GadgeoMin"
+        xmlns:control="clr-namespace:ch.hsr.wpf.gadgeothek.windowControl;assembly=ch.hsr.wpf.gadgeothek.windowControl"
         mc:Ignorable="d"
-        Title="Gadgeothek Admin App" Height="516.162" Width="631.726">
+        Title="Gadgeothek Admin App" Height="516.162" Width="631.726" Background="White">
     <Grid Margin="0,0,10,10">
         <TabControl x:Name="tabControl" HorizontalAlignment="Stretch" Margin="10,10,0,0" VerticalAlignment="Stretch" >
             <TabItem Header="Ausleihe">
@@ -17,4 +18,4 @@
             </TabItem>
         </TabControl>
     </Grid>
-</Window>
+</control:CustomWindow>
