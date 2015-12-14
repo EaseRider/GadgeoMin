@@ -55,7 +55,7 @@ namespace GadgeoMin
             {
                 Console.WriteLine("'{0}' is outside the range of a Double.", value);
             }
-            this.DialogResult = true;
+            
             ch.hsr.wpf.gadgeothek.domain.Condition condition = new ch.hsr.wpf.gadgeothek.domain.Condition();
             switch (cbCondition.Text.ToUpper())
             {
@@ -87,14 +87,14 @@ namespace GadgeoMin
             newGadget.Condition = condition;
             
             service.AddGadget(newGadget);
-            
+            this.DialogResult = true;
             this.Close();
         }
 
         public string findInventoryNumber()
         {
             List<Gadget> gadgets = service.GetAllGadgets();
-            for(int i = 0; i < gadgets.Count; i++)
+            for(int i = 1; i < gadgets.Count; i++)
             {
                 bool unused = true;
                 foreach(Gadget gadget in gadgets)
