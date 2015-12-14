@@ -51,16 +51,41 @@ namespace GadgeoMin
             {
                 Console.WriteLine("'{0}' is outside the range of a Double.", value);
             }
-            this.DialogResult = true;
+            ch.hsr.wpf.gadgeothek.domain.Condition condition = new ch.hsr.wpf.gadgeothek.domain.Condition();
+            switch (cbCondition.Text.ToUpper())
+            {
+                case "NEW":
+                    condition = ch.hsr.wpf.gadgeothek.domain.Condition.New;
+                    break;
+                case "GOOD":
+                    condition = ch.hsr.wpf.gadgeothek.domain.Condition.Good;
+                    break;
+                case "DAMAGED":
+                    condition = ch.hsr.wpf.gadgeothek.domain.Condition.Damaged;
+                    break;
+                case "WASTE":
+                    condition = ch.hsr.wpf.gadgeothek.domain.Condition.Waste;
+                    break;
+                case "LOST":
+                    condition = ch.hsr.wpf.gadgeothek.domain.Condition.Lost;
+                    break;
+                default:
+                    condition = ch.hsr.wpf.gadgeothek.domain.Condition.New;
+                    break;
+            }
+
             Gadget newGadget = new Gadget();
             newGadget.InventoryNumber = this.tbID.Text;
             newGadget.Name = this.tbName.Text;
             newGadget.Manufacturer = this.tbManufacturer.Text;
             newGadget.Price = result;
-            newGadget.Condition = new ch.hsr.wpf.gadgeothek.domain.Condition();
+            newGadget.Condition = condition;
+            
 
+            
+            
             service.UpdateGadget(newGadget);
-
+            this.DialogResult = true;
         }
 
     }

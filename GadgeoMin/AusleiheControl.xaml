@@ -40,11 +40,18 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
+        <Button x:Name="btnEditLoan" Click="btnEditLoan_Click">
+            <TextBlock Text="Ausleihe bearbeiten"/>
+        </Button>
         <Grid Grid.Row="2"
               ScrollViewer.CanContentScroll="True" 
               ScrollViewer.VerticalScrollBarVisibility="Auto"
               ScrollViewer.HorizontalScrollBarVisibility="Auto">
-            <DataGrid ItemsSource="{Binding LoanList}" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="29*"/>
+                <ColumnDefinition Width="387*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid ItemsSource="{Binding LoanList}" Grid.ColumnSpan="2" Margin="0,0,0,-0.333" />
         </Grid>
     </Grid>
 </UserControl>

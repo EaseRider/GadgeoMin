@@ -73,6 +73,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EditLoanWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GadgetControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -95,6 +99,9 @@
     </Compile>
     <Compile Include="AusleiheControl.xaml.cs">
       <DependentUpon>AusleiheControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditLoanWindow.xaml.cs">
+      <DependentUpon>EditLoanWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="GadgetControl.xaml.cs">
       <DependentUpon>GadgetControl.xaml</DependentUpon>
