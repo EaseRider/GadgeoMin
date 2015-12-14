@@ -50,7 +50,8 @@
             <DataGrid x:Name="dataGridView" ItemsSource="{Binding GadgetList}" 
                     ScrollViewer.CanContentScroll="True" 
                     ScrollViewer.VerticalScrollBarVisibility="Auto"
-                    ScrollViewer.HorizontalScrollBarVisibility="Auto" />
+                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                      IsReadOnly="True"/>
         </Grid>
 
     </Grid>
