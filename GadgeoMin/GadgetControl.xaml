@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:GadgeoMin"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <Grid  Margin="0,0,-90,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -44,6 +44,9 @@
             </Button>
             <Button x:Name="btnEditGadget" Click="btnEditGadget_Click">
                 <TextBlock Text="Gadget bearbeiten" />
+            </Button>
+            <Button x:Name="btnDeleteGadget" Click="btnDeleteGadget_Click">
+                <TextBlock Text="Gadget entfernen" />
             </Button>
         </StackPanel>
         <Grid Grid.Row="1">
