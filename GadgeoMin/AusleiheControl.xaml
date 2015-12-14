@@ -57,7 +57,13 @@
                 <ColumnDefinition Width="29*"/>
                 <ColumnDefinition Width="387*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid ItemsSource="{Binding LoanList}" Grid.ColumnSpan="2" Margin="0,0,0,-0.333" />
+            <DataGrid ItemsSource="{Binding LoanList}" 
+                      ScrollViewer.CanContentScroll="True" 
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                      Grid.ColumnSpan="2" 
+                      Margin="0,0,0,-0.333"
+                      IsReadOnly="True"/>
         </Grid>
     </Grid>
 </UserControl>

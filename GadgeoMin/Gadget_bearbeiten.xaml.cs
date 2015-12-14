@@ -38,7 +38,7 @@ namespace GadgeoMin
 
             // Create Gadget
             String value = this.tbPrice.Text;
-            Double result = 0.0;
+            Double result = 0;
             try
             {
                 result = Convert.ToDouble(value);
@@ -75,7 +75,13 @@ namespace GadgeoMin
             }
 
             Gadget newGadget = new Gadget();
-            newGadget.InventoryNumber = this.tbID.Text;
+
+            string invetoryNr = "0";
+            if (!this.tbID.Text.Equals("")) 
+            {
+                invetoryNr = this.tbID.Text;
+            }
+            newGadget.InventoryNumber = invetoryNr;
             newGadget.Name = this.tbName.Text;
             newGadget.Manufacturer = this.tbManufacturer.Text;
             newGadget.Price = result;
