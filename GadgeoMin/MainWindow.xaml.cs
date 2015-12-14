@@ -41,11 +41,17 @@ namespace GadgeoMin
         {
             AllGadgets = service.GetAllGadgets();
             GadgetList.Clear();
-            AllGadgets.ForEach(GadgetList.Add); 
+            if (AllGadgets != null) { 
+            AllGadgets.ForEach(GadgetList.Add);
 
             AllLoans = service.GetAllLoans();
             LoanList.Clear();
             AllLoans.ForEach(LoanList.Add);
+            } else
+            {
+                MessageBox.Show("Keine Verbindung zum Server gefunden!", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                Application.Current.Shutdown();
+        }
         }
 
         public void filterLoans(String filter)
@@ -54,18 +60,18 @@ namespace GadgeoMin
             if (filter.Length > 0)
             {
                 filter = filter.ToUpper();
-                AllLoans.Where(loan => {
-                    return loan.Gadget.Name.ToUpper().Contains(filter)
-                         || loan.Gadget.Manufacturer.ToUpper().Contains(filter)
-                         || loan.Customer.Name.ToUpper().Contains(filter);
-                }).ToList().ForEach(LoanList.Add);
+               AllLoans.Where(loan => {
+                   return loan.Gadget.Name.ToUpper().Contains(filter)
+                        || loan.Gadget.Manufacturer.ToUpper().Contains(filter)
+                        || loan.Customer.Name.ToUpper().Contains(filter);
+               }).ToList().ForEach(LoanList.Add);
             }
             else
             {
                 AllLoans.ForEach(LoanList.Add);
-            }
-        }
-
+            }   
+}
+        
         public void filterGadgets(String filter)
         {
             GadgetList.Clear();

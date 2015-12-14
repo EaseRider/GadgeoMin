@@ -1,19 +1,8 @@
 ﻿using ch.hsr.wpf.gadgeothek.domain;
 using ch.hsr.wpf.gadgeothek.service;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GadgeoMin
 {
@@ -22,6 +11,8 @@ namespace GadgeoMin
     /// </summary>
     public partial class GadgetControl : UserControl
     {
+        private MainWindow mainWindow;
+
         LibraryAdminService service;
         public GadgetControl()
         {
@@ -37,8 +28,11 @@ namespace GadgeoMin
             Gadget_hinzufügen window = new Gadget_hinzufügen();
             if (window.ShowDialog() == true)
             {
-                MainWindow main = (MainWindow)Window.GetWindow(this.Parent);
-                main.RefreshDataGrid();               
+                mainWindow = (MainWindow)Window.GetWindow(this.Parent);
+                // Update DataGrid
+                mainWindow.RefreshDataGrid(); 
+                
+                              
             }
         }
 
@@ -75,10 +69,9 @@ namespace GadgeoMin
             // Update DataGrid
             main.RefreshDataGrid();
         }
-
         private void filterInput_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+        { 
+            mainWindow = (MainWindow)Window.GetWindow(this);
             mainWindow.filterGadgets(filterInput.Text);
         }
     }
