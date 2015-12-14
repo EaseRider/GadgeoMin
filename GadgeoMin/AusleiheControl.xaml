@@ -45,7 +45,7 @@
             </TextBox.Style>
         </TextBox>
         <Button Style="{StaticResource GelButton}" x:Name="btnEditLoan" Click="btnEditLoan_Click" Grid.Row="0" Grid.Column="1">
-            <TextBlock Text="Ausleihe bearbeiten"/>
+            <TextBlock Text="Ausleihe hinzufügen"/>
         </Button>
         </StackPanel>
         
