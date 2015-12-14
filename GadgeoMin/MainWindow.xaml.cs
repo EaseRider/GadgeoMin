@@ -33,7 +33,7 @@ namespace GadgeoMin
 
             String ServerUrl = "http://localhost:8080";
             service = new LibraryAdminService(ServerUrl);
-
+            
             RefreshDataGrid();
         }
 
@@ -41,11 +41,17 @@ namespace GadgeoMin
         {
             AllGadgets = service.GetAllGadgets();
             GadgetList.Clear();
+            if (AllGadgets != null) { 
             AllGadgets.ForEach(GadgetList.Add);
 
             AllLoans = service.GetAllLoans();
             LoanList.Clear();
             AllLoans.ForEach(LoanList.Add);
+            } else
+            {
+                MessageBox.Show("Keine Verbindung zum Server gefunden!", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                Application.Current.Shutdown();
+            }
         }
 
         public void filterLoans(String filter)
@@ -63,7 +69,26 @@ namespace GadgeoMin
             {
                 AllLoans.ForEach(LoanList.Add);
             }   
-}
-        
+        }
+
+        public void filterGadgets(String filter)
+        {
+            GadgetList.Clear();
+            if (filter.Length > 0)
+            {
+                filter = filter.ToUpper();
+                AllGadgets.Where(gadget => {
+                    return gadget.Name.ToUpper().Contains(filter)
+                         || gadget.Manufacturer.ToUpper().Contains(filter)
+                         || gadget.InventoryNumber.ToUpper().Contains(filter)
+                         || gadget.Condition.ToString().ToUpper().Contains(filter);
+                }).ToList().ForEach(GadgetList.Add);
+            }
+            else
+            {
+                AllGadgets.ForEach(GadgetList.Add);
+            }
+        }
+
     }
 }
