@@ -38,18 +38,26 @@ namespace GadgeoMin
             if (window.ShowDialog() == true)
             {
                 MainWindow main = (MainWindow)Window.GetWindow(this.Parent);
-                // Update DataGrid
-                main.RefreshDataGrid(); 
-                
-                              
+                main.RefreshDataGrid();               
             }
         }
+
 
         private void btnEditGadget_Click(object sender, RoutedEventArgs e)
         {
             Gadget_bearbeiten window = new Gadget_bearbeiten();
             window.Owner = (MainWindow)Window.GetWindow(this);
-            
+            // Übernehme Werte aus ausgewähltem Item
+            if (dataGridView.SelectedItem != null)
+            {
+                Gadget gadget = (Gadget)dataGridView.SelectedItem;
+                window.tbID.Text = gadget.InventoryNumber;
+                window.tbManufacturer.Text = gadget.Manufacturer;
+                window.tbName.Text = gadget.Name;
+                window.tbPrice.Text = gadget.Price.ToString();
+                window.cbCondition.SelectedItem = gadget.Condition;
+            }
+            // Speichere änderungen
             if (window.ShowDialog() == true)
             {
                 Console.WriteLine(dataGridView.CurrentCell.Item.ToString());
@@ -66,6 +74,12 @@ namespace GadgeoMin
             MainWindow main = (MainWindow)Window.GetWindow(this);
             // Update DataGrid
             main.RefreshDataGrid();
+        }
+
+        private void filterInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+            mainWindow.filterGadgets(filterInput.Text);
         }
     }
 }

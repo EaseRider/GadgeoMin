@@ -31,7 +31,7 @@
                     <TextBlock Text="Cancel"/>
                 </Button>
                 <Button x:Name="btnSave" Margin="10,0, 10, 0" Click="btnSave_Click">
-                    <TextBlock Text="Sava"/>
+                    <TextBlock Text="Save"/>
                 </Button>
             </StackPanel>
         </StackPanel>

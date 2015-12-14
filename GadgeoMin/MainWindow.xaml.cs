@@ -41,7 +41,7 @@ namespace GadgeoMin
         {
             AllGadgets = service.GetAllGadgets();
             GadgetList.Clear();
-            AllGadgets.ForEach(GadgetList.Add);
+            AllGadgets.ForEach(GadgetList.Add); 
 
             AllLoans = service.GetAllLoans();
             LoanList.Clear();
@@ -54,16 +54,37 @@ namespace GadgeoMin
             if (filter.Length > 0)
             {
                 filter = filter.ToUpper();
-               AllLoans.Where(loan => {
-                   return loan.Gadget.Name.ToUpper().Contains(filter)
-                        || loan.Gadget.Manufacturer.ToUpper().Contains(filter)
-                        || loan.Customer.Name.ToUpper().Contains(filter);
-               }).ToList().ForEach(LoanList.Add);
-            } else
+                AllLoans.Where(loan => {
+                    return loan.Gadget.Name.ToUpper().Contains(filter)
+                         || loan.Gadget.Manufacturer.ToUpper().Contains(filter)
+                         || loan.Customer.Name.ToUpper().Contains(filter);
+                }).ToList().ForEach(LoanList.Add);
+            }
+            else
             {
                 AllLoans.ForEach(LoanList.Add);
-            }   
-}
-        
+            }
+        }
+
+        public void filterGadgets(String filter)
+        {
+            GadgetList.Clear();
+            if (filter.Length > 0)
+            {
+                filter = filter.ToUpper();
+                AllGadgets.Where(gadget => {
+                    return gadget.Name.ToUpper().Contains(filter)
+                         || gadget.Manufacturer.ToUpper().Contains(filter)
+                         || gadget.Price.ToString().ToUpper().Contains(filter)
+                         || gadget.InventoryNumber.ToUpper().Contains(filter)
+                         || gadget.Condition.ToString().ToUpper().Contains(filter);
+                }).ToList().ForEach(GadgetList.Add);
+            }
+            else
+            {
+                AllGadgets.ForEach(GadgetList.Add);
+            }
+        }
+
     }
 }
