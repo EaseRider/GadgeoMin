@@ -126,7 +126,10 @@ namespace ch.hsr.wpf.gadgeothek.service
 
         public bool DeleteGadget(Gadget obj)
         {
-            return DeleteItem(obj, obj.InventoryNumber);
+            if (obj != null)
+                return DeleteItem(obj, obj.InventoryNumber);
+            else
+                return false;
         }
 
         public bool DeleteCustomer(Customer obj)
