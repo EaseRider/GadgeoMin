@@ -58,7 +58,9 @@ namespace GadgeoMin
             newGadget.Manufacturer = this.tbManufacturer.Text;
             newGadget.Price = result;
             newGadget.Condition = new ch.hsr.wpf.gadgeothek.domain.Condition();
+            
 
+            ch.hsr.wpf.gadgeothek.domain.Condition c = new ch.hsr.wpf.gadgeothek.domain.Condition();
             service.UpdateGadget(newGadget);
             this.DialogResult = true;
         }
