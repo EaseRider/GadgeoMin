@@ -48,7 +48,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:CustomWindow}">
                     <Border BorderThickness="{TemplateBinding BorderThickness}"
-                            BorderBrush="{TemplateBinding BorderBrush}">
+                            BorderBrush="{TemplateBinding BorderBrush}" Background="White">
                         <Grid>
                             <Grid>
                                 <Grid.RowDefinitions>
